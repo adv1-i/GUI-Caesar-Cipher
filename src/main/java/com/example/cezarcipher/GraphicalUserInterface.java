@@ -63,11 +63,11 @@ public class GraphicalUserInterface implements Initializable {
 
     public void CodeMessage(MouseEvent actionEvent) {
         if (combo.getSelectionModel().getSelectedItem().equals("Английский")) {
-            String s = sourceField.getText().toLowerCase();
+            String s = sourceField.getText();
             key = Integer.parseInt(String.valueOf(spinnerCount.getValue()));
             codedField.setText(encrypt(s, key));
         } else {
-            String ru_string = sourceField.getText().toLowerCase();
+            String ru_string = sourceField.getText();
             key = Integer.parseInt(String.valueOf(spinnerCount.getValue()));
             codedField.setText(rucrypt(ru_string, key));
         }
