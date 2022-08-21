@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
@@ -43,6 +44,7 @@ public class GraphicalUserInterface implements Initializable {
     public void Select(ActionEvent actionEvent) {
         String s = combo.getSelectionModel().getSelectedItem();
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
