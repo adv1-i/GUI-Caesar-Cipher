@@ -53,7 +53,7 @@ public class Caesar {
     }
 
     private void addCount(List<LetterCount> letterCounts, char c) {
-        for (LetterCount letterCount: letterCounts) {
+        for (LetterCount letterCount : letterCounts) {
             if (letterCount.getLetter() == c) {
                 letterCount.incrementCount();
                 return;
@@ -202,33 +202,37 @@ public class Caesar {
     }
 
     public static void analysis() {
-        //System.out.println(analysisText + "/" + analysisText + "\n");
-        //System.out.println(ciphertext + "/"  + ciphertext + "\n");
         setCiphertext(ciphertext.toUpperCase());
         setAnalysisText(analysisText.toUpperCase());
         Map<Character, Integer> freqAnalysisText = new HashMap<>();
         Map<Character, Integer> freqCipherText = new HashMap<>();
         for (char analysisLetter : analysisText.toCharArray())
-            if (isLetterIncluded(analysisLetter)) freqAnalysisText.put(analysisLetter,
-                    freqAnalysisText.getOrDefault(analysisLetter, 0) + 1);
+            if (isLetterIncluded(analysisLetter)) {
+                freqAnalysisText.merge(analysisLetter, 1, Integer::sum);
+            }
 
-        graduationAnalysisMap = sortByValue(freqAnalysisText);
+                graduationAnalysisMap = sortByValue(freqAnalysisText);
 
-        for (char cipherLetter : ciphertext.toCharArray())
-            if (isLetterIncluded(cipherLetter)) freqCipherText.put(cipherLetter,
-                    freqCipherText.getOrDefault(cipherLetter, 0) + 1);
+                for (char cipherLetter : ciphertext.toCharArray())
+                    if (isLetterIncluded(cipherLetter)) {
+                        freqCipherText.merge(cipherLetter, 1, Integer::sum);
+                    }
 
-        graduationCipherMap = sortByValue(freqCipherText);
+                graduationCipherMap = sortByValue(freqCipherText);
 
-        System.out.println("Cipher Letters:\n");
-        for (Map.Entry<Character, Integer> entry : graduationCipherMap.entrySet()) {
-            //double percentage = 100.0 * entry.getValue() / getCipherTextArea().length();
-            System.out.println("letter - " + entry.getKey() + "   :   " + "quantity = " + entry.getValue() +"\n");
-        }
-        System.out.println("Analysis Letters:\n");
-        for (Map.Entry<Character, Integer> entry : graduationAnalysisMap.entrySet()) {
-            //double percentage = 100.0 * entry.getValue() / getAnalysisTextArea().length();
-            System.out.println("letter - " + entry.getKey() + "   :   " + "quantity = " + entry.getValue() +"\n");
-        }
+                System.out.println("Cipher Letters:\n");
+                for (Map.Entry<Character, Integer> entry : graduationCipherMap.entrySet()) {
+                    //double sumOfElements = graduationCipherMap.values().stream().reduce(0, Integer::sum);
+                    //double percentage = (entry.getValue() / sumOfElements) * 100.0;
+                    System.out.println("letter - " + entry.getKey() + "   :   " + "quantity = " + entry.getValue() + "\n");
+                    //System.out.println(sumOfElements);
+                }
+                System.out.println("Analysis Letters:\n");
+                for (Map.Entry<Character, Integer> entry : graduationAnalysisMap.entrySet()) {
+                    //double sumOfElements = graduationAnalysisMap.values().stream().reduce(0, Integer::sum);
+                    //double percentage = (entry.getValue() / sumOfElements) * 100.0;
+                    System.out.println("letter - " + entry.getKey() + "   :   " + "quantity = " + entry.getValue() + "\n");
+                    //System.out.println(sumOfElements);
+                }
+            }
     }
-}

@@ -107,22 +107,10 @@ public class GraphicalUserInterface implements Initializable {
                     mostCipherLetter.getValue() +"\n");
 
         int estimatedCalcKey = 0;
-        if (Caesar.isLetterIncluded(Character.toLowerCase(mostAnalysisLetter.getKey()))==
-                Caesar.isLetterIncluded(Character.toLowerCase(mostCipherLetter.getKey())))
-        {
             estimatedCalcKey = Math.abs((Character.toLowerCase(mostCipherLetter.getKey()))-
                     (Character.toLowerCase(mostAnalysisLetter.getKey())));
-        }
         outPutKey.setText(String.valueOf(estimatedCalcKey));
     }
-
-//    public static String getCipherTextArea() {
-//        return String.valueOf(cipherTextArea);
-//    }
-//
-//    public static String getAnalysisTextArea() {
-//        return String.valueOf(analysisTextArea);
-//    }
 
     @FXML public void displayTextInDecryptedField(ActionEvent event) throws IOException {
         FileChooser fileChooser = new FileChooser();
