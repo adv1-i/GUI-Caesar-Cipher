@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<TabPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cezarcipher.GraphicalUserInterface">
+<TabPane prefHeight="517.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cezarcipher.GraphicalUserInterface">
    <tabs>
       <Tab closable="false" text="Encrypt/Decrypt">
          <content>
-            <Pane fx:id="stage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="1000.0">
+            <Pane fx:id="stage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="1000.0">
                <children>
                   <Label fx:id="sourceLBL" alignment="CENTER" layoutX="26.0" layoutY="64.0" text="Исходный текст" />
                   <Label fx:id="codedLBL" alignment="CENTER" layoutX="516.0" layoutY="64.0" text="Закодированный текст" />
@@ -27,25 +27,25 @@
                   <Button fx:id="toClearSrc" alignment="CENTER" defaultButton="true" layoutX="298.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#srcClear" prefHeight="0.0" prefWidth="16.0" />
                   <TextArea fx:id="sourceField" layoutX="26.0" layoutY="81.0" prefHeight="300.0" prefWidth="460.0" wrapText="true" />
                   <TextArea fx:id="codedField" layoutX="516.0" layoutY="81.0" prefHeight="300.0" prefWidth="460.0" wrapText="true" />
-                  <Button fx:id="loadEncryptedFile" layoutX="921.0" layoutY="389.0" mnemonicParsing="false" onAction="#displayTextInEncryptedField" text="Browse" />
-                  <Button fx:id="loadDecryptedFile" layoutX="431.0" layoutY="389.0" mnemonicParsing="false" onAction="#displayTextInDecryptedField" text="Browse" />
+                  <Button fx:id="loadEncryptedFile" layoutX="913.0" layoutY="389.0" mnemonicParsing="false" onAction="#displayTextInEncryptedField" text="Открыть" />
+                  <Button fx:id="loadDecryptedFile" layoutX="423.0" layoutY="389.0" mnemonicParsing="false" onAction="#displayTextInDecryptedField" text="Открыть" />
                </children>
             </Pane>
          </content>
       </Tab>
       <Tab closable="false" text="Frequency analysis">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="852.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="669.0" prefWidth="1000.0">
                <children>
-                  <Button fx:id="loadCipherTextBTN" layoutX="185.0" layoutY="412.0" mnemonicParsing="false" onAction="#displayCipherTextOnBtnClick" text="Browse" />
-                  <Button fx:id="loadAnalysisTextBTN" layoutX="601.0" layoutY="412.0" mnemonicParsing="false" onAction="#displayAnalysisTextOnBtnClick" text="Browse" />
+                  <Button fx:id="loadCipherTextBTN" layoutX="185.0" layoutY="412.0" mnemonicParsing="false" onAction="#displayCipherTextOnBtnClick" text="Открыть" />
+                  <Button fx:id="loadAnalysisTextBTN" layoutX="601.0" layoutY="412.0" mnemonicParsing="false" onAction="#displayAnalysisTextOnBtnClick" text="Открыть" />
                   <TextArea fx:id="cipherTextArea" layoutX="14.0" layoutY="42.0" prefHeight="360.0" prefWidth="397.0" wrapText="true" />
                   <TextArea fx:id="analysisTextArea" layoutX="427.0" layoutY="42.0" prefHeight="361.0" prefWidth="403.0" wrapText="true" />
                   <TextField fx:id="outPutKey" editable="false" layoutX="860.0" layoutY="295.0" prefHeight="25.0" prefWidth="92.0" />
-                  <Button fx:id="analysisBTN" layoutX="857.0" layoutY="210.0" mnemonicParsing="false" onAction="#frequenceAnalysis" prefHeight="25.0" prefWidth="97.0" text="Do analysis" />
-                  <Text layoutX="857.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The intended key" wrappingWidth="94.0" />
-                  <Text layoutX="14.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Encrypted text" wrappingWidth="94.0" />
-                  <Text layoutX="426.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text for analysis" wrappingWidth="94.0" />
+                  <Button fx:id="analysisBTN" layoutX="857.0" layoutY="210.0" mnemonicParsing="false" onAction="#frequenceAnalysis" prefHeight="25.0" prefWidth="97.0" text="Анализ" />
+                  <Text layoutX="859.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ключ:" wrappingWidth="94.0" />
+                  <Text layoutX="14.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Зашифрованный текст" wrappingWidth="142.0" />
+                  <Text layoutX="427.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Текст для анализа" wrappingWidth="126.0" />
                </children>
             </AnchorPane>
         </content>

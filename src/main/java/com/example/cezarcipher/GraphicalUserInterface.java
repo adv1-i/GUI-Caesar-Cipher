@@ -3,6 +3,10 @@ package com.example.cezarcipher;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -56,8 +60,16 @@ public class GraphicalUserInterface implements Initializable {
     public  Button analysisBTN;
     @FXML
     public TextField outPutKey;
+    @FXML
+    public BarChart<?, ?> barChart;
+    @FXML
+    public CategoryAxis x;
+    @FXML
+    public NumberAxis y;
     int key;
     int currentValue;
+
+    XYChart.Series<Character, Integer> series1 = new XYChart.Series<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -99,11 +111,11 @@ public class GraphicalUserInterface implements Initializable {
         Map.Entry<Character, Integer> mostAnalysisLetter = graduationAnalysisMap.entrySet().iterator().next();
         Map.Entry<Character, Integer> mostCipherLetter = graduationCipherMap.entrySet().iterator().next();
 
-        System.out.println("The most meeting letter in analysis text\n");
-        System.out.println("letter - " + mostAnalysisLetter.getKey() + "   :   " + "quantity = " +
+        System.out.println("Самая встречающаяся буква в тексте для анализа\n");
+        System.out.println("Буква - " + mostAnalysisLetter.getKey() + "   :   " + "Количество = " +
                     mostAnalysisLetter.getValue() + "\n");
-        System.out.println("The most meeting letter in cipher text\n");
-        System.out.println("letter - " + mostCipherLetter.getKey() + "   :   " + "quantity = " +
+        System.out.println("Самая встречающаяся буква в зашифрованном тексте\n");
+        System.out.println("Буква - " + mostCipherLetter.getKey() + "   :   " + "Количество = " +
                     mostCipherLetter.getValue() +"\n");
 
         int estimatedCalcKey = 0;

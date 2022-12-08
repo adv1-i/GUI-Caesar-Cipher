@@ -1,5 +1,7 @@
 package com.example.cezarcipher;
 
+import javafx.scene.chart.XYChart;
+
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -220,18 +222,22 @@ public class Caesar {
 
                 graduationCipherMap = sortByValue(freqCipherText);
 
-                System.out.println("Cipher Letters:\n");
+                System.out.println("Символы зашифрованного текста:\n");
                 for (Map.Entry<Character, Integer> entry : graduationCipherMap.entrySet()) {
-                    //double sumOfElements = graduationCipherMap.values().stream().reduce(0, Integer::sum);
-                    //double percentage = (entry.getValue() / sumOfElements) * 100.0;
-                    System.out.println("letter - " + entry.getKey() + "   :   " + "quantity = " + entry.getValue() + "\n");
+                    double sumOfElements = graduationCipherMap.values().stream().reduce(0, Integer::sum);
+                    double percentage = (entry.getValue() / sumOfElements) * 100.0;
+                    String result = String.format("%.2f",percentage);
+                    System.out.println("Буква - " + entry.getKey() + "   :   " + "Количество = " + entry.getValue() +
+                            " (" + result + "%" + ")" + "\n");
                     //System.out.println(sumOfElements);
                 }
-                System.out.println("Analysis Letters:\n");
+                System.out.println("Символы текста для анализа:\n");
                 for (Map.Entry<Character, Integer> entry : graduationAnalysisMap.entrySet()) {
-                    //double sumOfElements = graduationAnalysisMap.values().stream().reduce(0, Integer::sum);
-                    //double percentage = (entry.getValue() / sumOfElements) * 100.0;
-                    System.out.println("letter - " + entry.getKey() + "   :   " + "quantity = " + entry.getValue() + "\n");
+                    double sumOfElements = graduationAnalysisMap.values().stream().reduce(0, Integer::sum);
+                    double percentage = (entry.getValue() / sumOfElements) * 100.0;
+                    String result = String.format("%.2f",percentage);
+                    System.out.println("Буква - " + entry.getKey() + "   :   " + "Количество = " + entry.getValue() +
+                            " (" + result + "%" + ")" + "\n");
                     //System.out.println(sumOfElements);
                 }
             }
